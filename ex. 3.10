@@ -1,0 +1,27 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int guest;
+	int seats;
+	int answer = 1;
+	int j;
+
+
+	cout << "Enter the number of guests: ";
+	cin >> guest;
+
+	cout << "Enter the number of seats: ";
+	cin >> seats;
+	
+	for (j = 0; j < seats; j++, guest--)
+		answer *= guest;
+	
+	cout << answer;
+
+
+	return 0;
+}
