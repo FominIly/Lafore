@@ -1,0 +1,73 @@
+
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	int funt_1;
+	int shilling_1;
+	int pens_1;
+	
+	int funt_2;
+	int shilling_2;
+	int pens_2;
+
+	int funt_an;
+	int shilling_an;
+	int pens_an;
+
+	float multiplier;
+
+	char temp;
+
+	cout << "Enter the sum(s) and operation: ";
+	cin >> temp >> funt_1 >> temp >> shilling_1 >> temp >> pens_1 >> temp;
+
+	switch (temp)
+	{
+	case '+':
+		cin >> temp >> funt_2 >> temp >> shilling_2 >> temp >> pens_2;
+		
+		pens_an = (pens_1 + pens_2) % 12;
+		shilling_an = ((shilling_1 + shilling_2) + (pens_1 + pens_2) / 12) % 20;
+		funt_an = funt_1 + funt_2 + ((shilling_1 + shilling_2) + (pens_1 + pens_2) / 12) / 20;
+		
+		cout << "The sum is J" << funt_an << "." << shilling_an << "." << pens_an;
+		break;
+	
+	case '-':
+		cin >> temp >> funt_2 >> temp >> shilling_2 >> temp >> pens_2;
+		
+		pens_1 = pens_1 + (shilling_1 * 12) + (funt_1 * 20 * 12);
+		pens_2 = pens_2 + (shilling_2 * 12) + (funt_2 * 20 * 12);
+
+		pens_an = (pens_1 - pens_2) % 12;
+		
+		if (pens_an < 0)
+		{
+			pens_1 *= -1;
+		}
+		shilling_an = ((pens_1 - pens_2) / 12) % 20;
+		funt_an = ((pens_1 - pens_2) / 12) / 20;
+
+		cout << "The sum is J" << funt_an << "." << shilling_an << "." << pens_an;
+		break;
+	
+	default:
+		break;
+	}
+
+	if (temp = '*')
+	{
+		cin >> multiplier;
+		pens_1 = (pens_1 + (shilling_1 * 12) + (funt_1 * 20 * 12)) * multiplier;
+
+		pens_an = pens_1 % 12;
+		shilling_an = (pens_1 / 12) % 20;
+		funt_an = (pens_1 / 12) / 20;
+		cout << "The sum is J" << funt_an << "." << shilling_an << "." << pens_an;
+	}
+	return 0;
+}
