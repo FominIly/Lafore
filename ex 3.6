@@ -1,0 +1,30 @@
+#include "pch.h"
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+int main()
+{
+	unsigned int numb;
+	
+	do
+	{
+		cout << "Enter the number: ";
+		cin >> numb;
+		unsigned long fact = 1;
+		
+		if (numb != 0)
+		{
+			for (int j = numb; j > 0; j--)
+				fact *= j;
+			cout << "The factorial is " << fact << endl;
+		}
+
+		else
+			cout << "The end!";
+
+	} while ( numb != 0);
+
+	return 0;
+}
