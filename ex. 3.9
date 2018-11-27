@@ -1,0 +1,30 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	float vklad;
+	float goda;
+	float rate;
+
+	int j;
+
+	cout << "Enter intial sum of Your deposit: ";
+	cin >> vklad;
+
+	cout << "Enter the number of years: ";
+	cin >> goda;
+
+	cout << "Enter deposit rate: ";
+	cin >> rate;
+
+	for (j = 0; j < goda; j++)
+	{
+		vklad = vklad + (vklad * rate);
+	}
+	cout << "Your money after " << vklad;
+
+	return 0;
+}
