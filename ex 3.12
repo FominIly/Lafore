@@ -1,0 +1,54 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	float a;
+	float b;
+
+	float c;
+	float d;
+
+	float n;
+	float m;
+
+	char y;
+	char op;
+	do
+	{
+		cout << "Enter the first operand, operation and the second operand: ";
+		cin >> a >> y >> b >> op >> c >> y >> d;
+
+		switch (op)
+		{
+		case '+':
+			n = a * d + b * c;
+			m = b * d;
+			cout << "The answer is " << n << "/" << m;
+			break;
+		case '-':
+			n = a * d - b * c;
+			m = b * d;
+			cout << "The answer is " << n << "/" << m;
+			break;
+		case '*':
+			n = a * c;
+			m = b * d;
+			cout << "The answer is " << n << "/" << m;
+			break;
+		case '/':
+			n = a * d;
+			m = b * c;
+			cout << "The answer is " << n << "/" << m << endl;
+			break;
+		default:
+			break;
+		}
+		cout << "Once again? - y/n: ";
+		getchar();
+	} while (getchar() == y);
+
+	return 0;
+}
