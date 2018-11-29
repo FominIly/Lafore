@@ -1,0 +1,41 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+struct Distance
+{
+	int feet;
+	float inches;
+};
+
+struct Volume
+{
+	Distance x;
+	Distance y;
+	Distance z;
+};
+
+int main()
+{
+	Volume Dom;
+
+	cout << "Enter the characteristics of the house";
+	
+	cout << "\nX is ";
+	cin >> Dom.x.feet >> Dom.x.inches;
+
+	float x = Dom.x.feet + Dom.x.inches / 12;
+
+	cout << "\nY is ";
+	cin >> Dom.y.feet >> Dom.y.inches;
+
+	float y = Dom.y.feet + Dom.y.inches / 12;
+
+	cout << "\nZ is ";
+	cin >> Dom.z.feet >> Dom.z.inches;
+
+	float z = Dom.z.feet + Dom.z.inches / 12;
+
+	cout << "\nThe volume is " << x * y * z  << endl;
+}
