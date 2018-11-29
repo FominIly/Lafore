@@ -1,0 +1,34 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+struct coord
+{
+	int x;
+	int y;
+};
+
+int main()
+{
+	coord position_1;
+	position_1.x;
+	position_1.y;
+
+	coord position_2;
+	position_2.x;
+	position_2.y;
+
+	coord position_3;
+	position_3.x;
+	position_3.y;
+
+	cout << "Enter the first position: ";
+	cin >> position_1.x >> position_1.y;
+
+	cout << "Enter the second position: ";
+	cin >> position_2.x >> position_2.y;
+
+	cout << "\nThe third position is: " << position_1.x + position_2.x << " " << position_1.y + position_2.y << endl;
+
+}
