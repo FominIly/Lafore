@@ -1,0 +1,38 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+struct time
+{
+	int hour;
+	int minutes;
+	int seconds;
+};
+
+void swap(time&, time&);
+
+
+int main()
+{
+	time one = { 10, 10, 10 };
+	time two = { 11, 11, 11 };
+	
+	swap(one, two);
+
+	cout << one.hour << ":" << one.minutes << ":" << one.seconds << endl;
+
+	cout << two.hour << ":" << two.minutes << ":" << two.seconds << endl;
+
+
+	return 0;
+}
+
+void swap(time& n, time& p) 
+{
+	time temp;
+	
+	temp = n;
+	n = p;
+	p = temp;
+}
