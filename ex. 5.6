@@ -1,0 +1,58 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+struct time
+{
+	int hours;
+	int minutes;
+	int seconds;
+};
+
+long time_to_sec(time main);
+
+time sec_to_time(long main);
+
+void time_demonstration(time n);
+
+int main()
+{
+	time main_1, ans;
+	long main_2;
+	char temp;
+
+	cout << "Enter the time in format '00:00:00': ";
+	cin >> main_1.hours >> temp >> main_1.minutes >> temp >> main_1.seconds;
+
+	cout << "Enter the number of seconds: ";
+	cin >> main_2;
+
+	cout << "Number of seconds: " << time_to_sec(main_1) << endl;
+
+	ans  = sec_to_time(main_2);
+	time_demonstration(ans);
+	
+	return 0;
+}
+
+long time_to_sec(time main)
+{
+	long ans = main.seconds + main.minutes * 60 + main.hours * 3600;
+	return ans;
+}
+
+time sec_to_time(long main)
+{
+	time ans;
+	ans.hours = main / 3600;
+	ans.minutes = (main % 3600) / 60;
+	ans.seconds = (main % 3600) % 60;
+
+	return ans;
+}
+
+void time_demonstration(time n)
+{
+	cout << n.hours << ":" << n.minutes << ":" << n.seconds;
+}
