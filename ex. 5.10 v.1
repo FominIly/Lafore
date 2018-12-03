@@ -1,0 +1,27 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+
+void swap(int&);
+
+
+int main()
+{
+	int a = -1;
+	
+	do
+	{
+		swap(a);
+		cout << a << endl;
+
+	} while (a < 9);
+
+	return 0;
+}
+
+void swap(int& n) 
+{
+	n += 1;
+}
