@@ -1,0 +1,44 @@
+//
+
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+struct Distance
+{
+	int feet;
+	float inches;
+};
+
+void zerosmaller(Distance a, Distance p);
+
+int main()
+{
+	Distance main1, main2;
+	
+	cout << "Enter the numbers of the first main: ";
+	cin >> main1.feet >> main1.inches;
+
+	cout << "Enter the numbers of the second main: ";
+	cin >> main2.feet >> main2.inches;
+
+	zerosmaller(main1, main2);
+
+	return 0;
+}
+
+void zerosmaller(Distance a, Distance p)
+{
+	a.inches = a.inches + a.feet * 12;
+	p.inches = p.inches + p.feet * 12;
+
+	if (a.inches > p.inches)
+		cout << a.feet << "-" << a.inches - a.feet * 12;
+
+	if (p.inches > a.inches)
+		cout << p.feet << "-" << p.inches - p.feet * 12;
+
+	if (p.inches == a.inches)
+		cout << "Wrong numbers!!!";
+}
