@@ -1,0 +1,80 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+double power(char n, int p);
+double power(int n, int p);
+double power(float n, int p);
+double power(long n, int p);
+
+
+int main()
+{
+	int p;
+	cout << "Enter the power: " << endl;
+	cin >> p;
+	
+	char a; 
+	cout << "Enter char a: ";
+	cin >> a;
+
+	int b;
+	cout << "Enter int b: ";
+	cin >> b;
+
+	float c;
+	cout << "Enter float c: ";
+	cin >> c;
+
+	long d;
+	cout << "Enter long d: ";
+	cin >> d;
+
+	cout << power(a, p) << endl;
+	cout << power(b, p) << endl;
+	cout << power(c, p) << endl;
+	cout << power(d, p) << endl;
+
+	return 0;
+}
+
+double power(char n, int p) // I didn't fully understand the terms. In my version, the program reads the number from the ASCII table.
+{
+	double ans = 1;
+	int j;
+	
+	for (j = 0; j < p; j++)
+		ans *= n;
+	return ans;
+}
+
+double power(int n, int p) 
+{
+	double ans = 1;
+	int j;
+
+	for (j = 0; j < p; j++)
+		ans *= n;
+	return ans;
+}
+
+double power(float n, int p)
+{
+	double ans = 1;
+	int j;
+
+	for (j = 0; j < p; j++)
+		ans *= n;
+	return ans;
+}
+
+double power(long n, int p)
+{
+	double ans = 1;
+	int j;
+
+	for (j = 0; j < p; j++)
+		ans *= n;
+	return ans;
+}
