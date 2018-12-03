@@ -1,0 +1,26 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+
+void swap(int);
+
+
+int main()
+{
+	int a = 0;
+	int j;
+	
+	for (j = 0; j < 10; j++)
+		swap(a);
+
+	return 0;
+}
+
+void swap(int n) 
+{
+	static int count = 0;
+	cout << count << endl;
+	count++;
+}
