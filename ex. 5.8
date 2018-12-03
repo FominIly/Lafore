@@ -1,0 +1,31 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+void swap(int&, int&);
+
+
+int main()
+{
+	int a;
+	int b;
+
+	cout << "Enter the numbers: ";
+	cin >> a >> b;
+
+	swap(a, b);
+
+	cout << a << endl << b;
+
+	return 0;
+}
+
+void swap(int& n, int& p) 
+{
+	int  temp;
+	
+	temp = n;
+	n = p;
+	p = temp;
+}
