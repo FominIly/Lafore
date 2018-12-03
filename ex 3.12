@@ -48,7 +48,7 @@ int main()
 		}
 		cout << "Once again? - y/n: ";
 		getchar();
-	} while (getchar() == y);
+	} while (getchar() == 'y');
 
 	return 0;
 }
