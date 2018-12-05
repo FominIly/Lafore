@@ -1,0 +1,37 @@
+#include "pch.h"
+#include <iostream>
+
+class Int
+{
+private:
+	int a;
+public:
+	Int()
+	{
+		a = 0;
+	}
+	Int(int b)
+	{
+		a = b;
+	}
+	void showdata()
+	{
+		std::cout << a << std::endl;
+	}
+	void sum(Int n, Int p)
+	{
+		a = n.a + p.a;
+	}
+};
+
+int main()
+{
+	Int a(10);
+	Int b(20);
+	Int c;
+
+	c.sum(a, b);
+	c.showdata();
+
+	return 0;
+}
