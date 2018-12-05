@@ -1,0 +1,42 @@
+#include "pch.h"
+#include <iostream>
+
+class employee
+{
+private:
+	int number;
+	float salary;
+public:
+	employee():number(0), salary(0)
+	{}
+	void entrance()
+	{
+		std::cout << std::endl << "Enter the number of worker and his/her salary";
+		std::cout << "\nThe number: ";
+		std::cin >> number;
+		std::cout << "Salary: ";
+		std::cin >> salary;
+	}
+	void display()
+	{
+		std::cout << "\nThe number of worker: " << number << std::endl << "Salary: " << salary << std::endl;
+	}
+
+};
+
+int main()
+{
+	employee John;
+	employee Olga;
+	employee Muhammad;
+
+	John.entrance();
+	Olga.entrance();
+	Muhammad.entrance();
+
+	John.display();
+	Olga.display();
+	Muhammad.display();
+
+	return 0;
+}
