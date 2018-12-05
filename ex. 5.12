@@ -1,0 +1,86 @@
+#include "pch.h"
+#include <iostream>
+
+struct fraction
+{
+	int a;
+	int b;
+};
+
+fraction fadd(fraction, fraction);
+
+fraction fsub(fraction, fraction);
+
+fraction fmul(fraction, fraction);
+
+fraction fdiv(fraction, fraction);
+
+int main()
+{
+	fraction main;
+	fraction minor;
+	char temp;
+	char oprt;
+
+	fraction answer;
+
+	std::cout << "Enter the dividend, operation and the divisor: ";
+	std::cin >> main.a >> temp >> main.b >> oprt >> minor.a >> temp >> minor.b;
+
+	switch (oprt)
+	{
+	case '+':
+		answer = fadd(main, minor);
+		break;
+	case '-':
+		answer = fsub(main, minor);
+		break;
+	case '*':
+		answer = fmul(main, minor);
+		break;
+	case '/':
+		answer = fdiv(main, minor);
+	default:
+		break;
+	}
+
+	std::cout << answer.a << "/" << answer.b;
+
+	return 0;
+}
+
+fraction fadd(fraction n, fraction p) 
+{
+	fraction answer;
+	answer.a = (n.a * p.b) + (p.a * n.b);
+	answer.b = n.b * p.b;
+
+	return answer;
+}
+
+fraction fsub(fraction n, fraction p)
+{
+	fraction answer;
+	answer.a = (n.a * p.b) - (p.a * n.b);
+	answer.b = n.b * p.b;
+
+	return answer;
+}
+
+fraction fmul(fraction n, fraction p) 
+{
+	fraction answer;
+	answer.a = n.a * p.a;
+	answer.b = n.b * p.b;
+
+	return answer;
+}
+
+fraction fdiv(fraction n, fraction p)
+{
+	fraction answer;
+	answer.a = n.a * p.b;
+	answer.b = n.b * p.a;
+
+	return answer;
+}
