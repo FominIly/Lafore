@@ -1,0 +1,121 @@
+#include "pch.h"
+#include <iostream>
+
+enum etype { laborer, secretary, manager, accountant, executive, researcher };
+
+class date
+{
+private:
+	int day;
+	int month;
+	int year;
+public:
+	date():day(0), month(0), year(0)
+	{}
+	void getdate()
+	{
+		std::cout << "Enter the hiring date: ";
+		std::cin >> day; 
+		if (getchar() == '/')
+		{
+			std::cin >> month;
+		}
+		if (getchar() == '/')
+		{
+			std::cin >> year;
+		}
+	}
+	void showdate()
+	{
+		std::cout << "\nThe hiring date is " << day << "/" << month << "/" << year << std::endl;
+	}
+};
+
+class employee
+{
+private:
+	int number;
+	float salary;
+	date hiring;
+	etype position;
+public:
+	employee() :number(0), salary(0)
+	{}
+	void getemploy()
+	{
+		hiring.getdate();
+		std::cout << std::endl << "Enter the number of worker and his/her salary";
+		std::cout << "\nThe number: ";
+		std::cin >> number;
+		std::cout << "Salary: ";
+		std::cin >> salary;
+		std::cout << "Choose one of the following positions by entering the first letter: ";
+		std::cout << "\nl - laborer" << "\ns - secretary" << "\nm - manager" << "\na - accountant" << "\ne - executive" << "\nr - researcher" << std::endl;
+		getchar();
+		switch (getchar())
+		{
+		case 'l':
+			position = laborer;
+			break;
+		case 's':
+			position = secretary;
+			break;
+		case 'm':
+			position = manager;
+			break;
+		case 'a':
+			position = accountant;
+			break;
+		case 'e':
+			position = executive;
+			break;
+		case 'r':
+			position = researcher;
+		default:
+			break;
+		}
+
+	}
+	void putemploy()
+	{
+		hiring.showdate();
+		std::cout << "\nThe number of worker: " << number << std::endl << "Salary: " << salary << std::endl;
+
+		switch (position)
+		{
+		case 0:
+			std::cout << "The position - laborer" << std::endl;
+			break;
+		case 1:
+			std::cout << "The position - secretary" << std::endl;
+			break;
+		case 2:
+			std::cout << "The position - manager" << std::endl;
+			break;
+		case 3:
+			std::cout << "The position - accountant" << std::endl;
+			break;
+		case 4:
+			std::cout << "The position - executive" << std::endl;
+			break;
+		case 5:
+			std::cout << "The position - researcher" << std::endl;
+			break;
+		default:
+			break;
+		}
+
+	}
+
+};
+
+
+int main()
+{
+	employee Ilya;
+
+	Ilya.getemploy();
+	Ilya.putemploy();
+
+	return 0;
+}
