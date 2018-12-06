@@ -1,0 +1,40 @@
+#include "pch.h"
+#include <iostream>
+
+class date
+{
+private:
+	int day;
+	int month;
+	int year;
+public:
+	date():day(0), month(0), year(0)
+	{}
+	void getdate()
+	{
+		std::cout << "Enter the date: ";
+		std::cin >> day; 
+		if (getchar() == '/')
+		{
+			std::cin >> month;
+		}
+		if (getchar() == '/')
+		{
+			std::cin >> year;
+		}
+	}
+	void showdate()
+	{
+		std::cout << "\nThe date is " << day << "/" << month << "/" << year << std::endl;
+	}
+};
+
+int main()
+{
+	date one;
+
+	one.getdate();
+	one.showdate();
+
+	return 0;
+}
