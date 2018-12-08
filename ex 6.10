@@ -1,0 +1,117 @@
+#include "pch.h"
+#include <iostream>
+
+class angle
+{
+private:
+	int degreess;
+	float minutes;
+	char direction;
+public:
+	void entrance(int n)
+	{
+		if (n == 1)
+		{	std::cout << "Enter the coordinates for longtitude: ";
+			std::cin >> degreess;
+			if (getchar() == '*')
+			{
+				std::cin >> minutes;
+				if (getchar() == '\'')
+					std::cin >> direction;
+			}
+
+			if ((degreess < 0) || (degreess > 180) || (minutes > 59) || ((direction != 'E') && (direction != 'W')))
+			{
+				std::cout << "You have entered the wrong coordinates of the point" << std::endl;
+				degreess = 0;
+				minutes = 0;
+				direction = '~';
+				std::cout << "Do you want to repeat? - y/n" << std::endl;
+				getchar();
+				if (getchar() == 'y')
+				{
+					entrance(n);
+				}
+			}
+		}
+
+		if (n == 2)
+		{
+			std::cout << "Enter the coordinates for latitude: ";
+			std::cin >> degreess;
+			if (getchar() == '*')
+			{
+				std::cin >> minutes;
+				if (getchar() == '\'')
+
+					std::cin >> direction;
+			}
+
+			if ((degreess < 0) || (degreess > 90) || (minutes > 59) || ((direction != 'S') && (direction != 'N')))
+			{
+				std::cout << "You have entered the wrong coordinates of the point" << std::endl;
+				degreess = 0;
+				minutes = 0;
+				direction = '~';
+				std::cout << "Do you want to repeat? - y/n" << std::endl;
+				getchar();
+				if (getchar() == 'y')
+				{
+					entrance(n);
+				}
+			}
+		}
+	}
+	void show_point()
+	{
+		std::cout << degreess << '\xF8' << minutes << '\'' << direction;
+	}
+};
+
+class ship
+{
+private:
+	int ship_number;
+	angle logntitude;
+	angle latittude;
+public:
+	void entrance()
+	{
+		int p = 1;
+		std::cout << "Enter the ship number: ";
+		std::cin >> ship_number;
+		if (p == 1)
+		{
+			logntitude.entrance(p);
+			p++;
+		}
+		if (p == 2)
+		{
+			latittude.entrance(p);
+		}
+	}
+	void show_ship_info()
+	{
+		std::cout << "\nThe ship number: " << ship_number << "\nThe ship coordinates: ";
+		logntitude.show_point();
+		latittude.show_point();
+	}
+};
+
+
+int main()
+{
+	ship one;
+	ship two;
+	ship three;
+
+	one.entrance();
+	two.entrance();
+	three.entrance();
+
+	one.show_ship_info();
+	two.show_ship_info();
+	three.show_ship_info();
+
+	return 0;
+}
