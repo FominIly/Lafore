@@ -1,0 +1,33 @@
+#include "pch.h"
+#include <iostream>
+
+class foo
+{
+private:
+	int use;
+	static int count;
+public:
+	foo()
+	{ 
+		count++;
+	}
+	int getcount()
+	{ 
+		return count;
+	}
+};
+
+int foo::count = 0;
+
+int main()
+{
+	foo number_1;
+	foo number_2;
+	foo number_3;
+	foo number_4;
+	foo number_5;
+	
+	std::cout << "The final number is " << number_5.getcount();
+
+	return 0;
+}
