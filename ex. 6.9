@@ -1,0 +1,39 @@
+#include "pch.h"
+#include <iostream>
+
+class fraction
+{
+private:
+	int numerator;
+	int denominator;
+public:
+	void entrance()
+	{
+		std::cout << "Enter the fraction: ";
+		std::cin >> numerator;
+		if (getchar() == '/')
+		{
+			std::cin >> denominator;
+		}
+	}
+	void sum(fraction n)
+	{
+		int answer_num = numerator * n.denominator + n.numerator * denominator;
+		int answer_denom = denominator * n.denominator;
+		std::cout << "The answer is " << answer_num << "/" << answer_denom << std::endl;
+	}
+};
+
+
+int main()
+{
+	fraction one;
+	fraction two;
+
+	one.entrance();
+	two.entrance();
+
+	one.sum(two);
+
+	return 0;
+}
