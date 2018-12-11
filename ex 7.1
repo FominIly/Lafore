@@ -1,0 +1,34 @@
+#include "pch.h"
+#include <iostream>
+#include <cstring>
+
+
+int main()
+{
+	const int MAX = 200;
+	char str[MAX];
+
+	void reversit(char arr[]);
+	std::cout << "Enter the phrase: ";
+	
+	std::cin.get(str, MAX);
+	reversit(str);
+	std::cout << str;
+
+	return 0;
+}
+
+
+void reversit(char arr[])
+{
+	int left = strlen(arr);
+
+	int j;
+
+	for (j = 0; j < left / 2; j++)
+	{
+		char temp = arr[j];
+		arr[j] = arr[left - j - 1];
+		arr[left - j - 1] = temp;
+	}
+}
