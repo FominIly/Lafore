@@ -1,0 +1,50 @@
+#include "pch.h"
+#include <iostream>
+#include <string>
+#include <cstring>
+
+
+class employee
+{
+private:
+	std::string name;
+	long number;
+public:
+	void getdata()
+	{
+		std::cout << "Enter the name of the worker: ";
+		std::cin >> name;
+		std::cout << "Enter the personal number: ";
+		std::cin >> number;
+	}
+	void putdata()
+	{
+		std::cout << "\nThe name of the worker is " << name << "\n" << "The personal number: " << number << std::endl;
+	}
+
+};
+
+
+int main()
+{
+	const int MAX = 100;
+	employee list[MAX];
+	char temp;
+	int j = 0;
+	int y;
+
+	do 
+	{
+		list[j++].getdata();
+		std::cout << "Do you want to enter the information about someone else? - y/n: "; std::cin >> temp;
+
+	} while (temp == 'y' && j < MAX);
+
+
+	for (y = 0; y < j; y++)
+	{
+		list[y].putdata();
+	}
+
+	return 0;
+}
