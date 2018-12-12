@@ -1,0 +1,29 @@
+#include "pch.h"
+#include <iostream>
+
+int main()
+{
+	const int MAX = 10;
+	int list[MAX];
+	int j;
+	int b;
+	
+	std::cout << "Enter the list of numbers: ";
+	for (j = 0; j < MAX; j++)
+	{
+		std::cin >> list[j];
+	}
+	
+	b = list[0];
+
+	for (j = 0; j < MAX; j++)
+	{
+		if (list[j] > b)
+		{
+			b = list[j];
+		}
+	}
+
+	std::cout << b;
+	return 0;
+}
