@@ -1,0 +1,56 @@
+#include "pch.h"
+#include <iostream>
+
+using namespace std;
+
+class stack
+{
+	static const int MAX = 3;
+	int st[MAX];
+	int head;
+	int tail;
+	int elem;
+public:
+	stack():head(0), tail(0), elem(0)
+	{}
+	void put(int n)
+	{
+		if (tail == MAX)
+		{
+			tail = 0;
+		}
+		st[tail] = n;
+		tail++;
+		elem++;
+		if (elem > MAX)
+		{
+			head++;
+		}
+	}
+	int get()
+	{
+		if (head == MAX)
+		{
+			head = 0;
+		}
+		int temp = st[head];
+		head++;
+		elem--;
+		return temp;
+	}
+};
+
+int main()
+{
+	stack one;
+	one.put(10);
+	one.put(5);
+	one.put(20);
+	one.put(234);
+	one.put(122);
+	one.put(4444);
+	std::cout << one.get() << std::endl;
+	std::cout << one.get() << std::endl;
+	std::cout << one.get() << std::endl;
+	return 0;
+}
