@@ -1,0 +1,47 @@
+#include "pch.h"
+#include <iomanip>
+#include <iostream>
+#include <string>
+#include <string.h>
+#include <stdlib.h>
+
+class money
+{
+	long double sum;
+	std::string number;
+public:
+	void mstold()
+	{
+		std::string temp;
+		std::cout << "Enter the sum: " << std::endl;
+		std::cin >> number;
+		int b = number.length();
+		int j;
+		for (j = 0; j < b - 1; j++)
+		{
+			if (number[j] == '0' || number[j] == '1' || number[j] == '2' || number[j] == '3' || number[j] == '4' || number[j] == '5' || number[j] == '6' || number[j] == '7' || number[j] == '8' || number[j] == '9' || number[j] == '.')
+			{
+				temp.append(1, number[j]);
+			}
+		}
+		sum = std::stold(temp);
+	}
+	
+	void display()const
+	{
+		std::cout << std::setiosflags(std::ios::fixed)
+			<< std::setiosflags(std::ios::showpoint)
+			<< std::setprecision(2)
+			<< "\n" << sum << std::endl;
+	}
+
+};
+
+int main()
+{
+	money one;
+	one.mstold();
+	one.display();
+	
+	return 0;
+}
