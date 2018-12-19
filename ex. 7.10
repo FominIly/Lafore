@@ -1,0 +1,45 @@
+#include "pch.h"
+#include <iostream>
+
+class matrix
+{
+private:
+	static const int size = 10;
+	int x[size] [size];
+	int row;
+	int column;
+public:
+	matrix(int n, int p) : row(n), column(p)
+	{
+		if (n > 10 || n <= 0 || p > 10 || p <= 0)
+		{
+			std::cout << "Warning!!! Matrix is out of allowable range!";
+		}
+	}
+	void filling(int n, int p, int temp)
+	{
+		
+		if (n < row && n >= 0 && p < column && p >= 0)
+		{
+			x[n][p] = temp;
+		}
+		else 	if (n > row || p > column)
+		{
+			std::cout << "Warning!!! Matrix is out of allowable range!" << std::endl;
+		}	
+	}
+	void display(int n, int p)
+	{
+		std::cout << x[n][p] << std::endl;
+	}
+};
+
+int main()
+{
+	matrix one(3, 4);
+	int temp = 1234;
+	one.filling(0, 1, temp);
+	one.display(0, 1);
+
+	return 0;
+}
