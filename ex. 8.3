@@ -1,0 +1,47 @@
+#include "pch.h"
+#include <iostream>
+
+class time
+{
+private:
+	int hour;
+	int minutes;
+	int seconds;
+public:
+	time():hour(0), minutes(0), seconds(0)
+	{}
+	time(int a, int b, int c) : hour(a), minutes(b), seconds(c)
+	{}
+	void display()
+	{
+		std::cout << hour << ":" << minutes << ":" << seconds;
+	}
+	void sum(time n, time p)
+	{
+		seconds = (n.seconds + p.seconds) % 60;
+		minutes = (((n.seconds + p.seconds) / 60) + n.minutes + p.minutes) % 60;
+		hour = ((((n.seconds + p.seconds) / 60) + n.minutes + p.minutes) / 60) + n.hour + p.hour;
+	}
+	time operator+(time n)
+	{
+		time temp;
+		temp.seconds = (n.seconds + seconds) % 60;
+		temp.minutes = (((n.seconds + seconds) / 60) + n.minutes + minutes) % 60;
+		temp.hour = ((((n.seconds + seconds) / 60) + n.minutes + minutes) / 60) + n.hour + hour;
+		return temp;
+	}
+};
+
+int main()
+{
+	const time one(10, 25, 30);
+	const time two(15, 47, 29);
+
+	time answer;
+
+	answer.sum(one, two);
+	answer.display();
+	std::cout << "\n";
+	answer.display();
+	return 0;
+}
