@@ -1,0 +1,43 @@
+#include "pch.h"
+#include <iostream>
+
+class Distance
+{
+private:
+	int feet;
+	float inches;
+public:
+	Distance() : feet(0), inches(0.0)
+	{}
+	Distance( int ft, float inch) : feet(ft), inches(inch)
+	{}
+	void getdist()
+	{
+		std::cout << "Enter the distance: ";
+		std::cin >> feet >> inches;
+	}
+	void  show_dist()
+	{
+		std::cout << feet << "`" << inches;
+	}
+	Distance operator- (Distance) const;
+};
+
+Distance Distance::operator- (Distance n) const
+{
+	int f = feet - n.feet;
+	int i = inches - n.inches;
+
+	return Distance(f, i);
+}
+
+int main()
+{
+	Distance one(10, 15);
+	Distance two(15, 26);
+	Distance three;
+
+	three = two - one;
+
+	three.show_dist();
+}
