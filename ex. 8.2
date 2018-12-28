@@ -1,0 +1,59 @@
+#include "pch.h"
+#include <iostream>
+#include <string.h>   // для функций strcpy, strcat
+#include <stdlib.h>   // для функции exit
+using namespace std;
+
+class String          // наш класс для строк
+{
+private:
+	enum { SZ = 80 }; // максимальный размер строки
+	char str[SZ];     // массив для строки
+public:
+	String()
+	{
+		strcpy_s(str, "");
+	}
+	String(const char s[])
+	{
+		strcpy_s(str, s);
+	}
+	void display() const
+	{
+		cout << str;
+	}
+	String operator += (String ss) const
+	{
+		String temp;                 // временная переменная
+		if (strlen(str) + strlen(ss.str) < SZ)
+		{
+			strcpy_s(temp.str, str);   // копируем содержимое первой строки
+			strcat_s(temp.str, ss.str);// добавляем содержимое второй строки
+		}
+		else
+		{
+			cout << "\nПереполнение!";
+			exit(1);
+		}
+		return temp;                 // возвращаем результат
+	}
+};
+
+int main()
+{
+	system("chcp 1251 > nul");
+
+	String s1 = "\nHappy New Year!  "; // используем конструктор с параметром
+	String s2 = "Merry Christmas!";   // используем конструктор с параметром
+	String s3;                      // используем конструктор без параметров
+	s1.display();
+	s2.display();
+	s3.display();
+
+	s3 = s1 += s2;
+
+	s1.display();
+	cout << endl;
+	cin.get();
+	return 0;
+}
